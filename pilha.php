@@ -16,6 +16,12 @@ function funcao1()
         echo "  Mensagem {$error->getMessage()}" . PHP_EOL;
         echo "  Pilha de execução: " . PHP_EOL;
         echo "  {$error->getTraceAsString()}" . PHP_EOL . PHP_EOL;
+
+        throw new RuntimeException(
+            "lançando uma nova exception apos o tratamento anterior",
+            $error->getCode(),
+            $error
+        );
     }
 
     echo 'Saindo da função 1' . PHP_EOL;
