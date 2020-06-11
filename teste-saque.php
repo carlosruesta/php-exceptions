@@ -13,6 +13,12 @@ $conta = new ContaPoupanca(
     )
 );
 $conta->deposita(500);
-$conta->saca(100);
 
-echo $conta->recuperaSaldo();
+try {
+    $conta->saca(600);
+} catch (Exception $error) {
+    echo $error->getMessage() . PHP_EOL;
+}
+
+
+echo "Saldo final: {$conta->recuperaSaldo()}";
