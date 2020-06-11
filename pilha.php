@@ -7,9 +7,6 @@ function funcao1()
     try {
 //            $arrayFixo = new SplFixedArray(2);
 //            $arrayFixo[3] = 1111;
-
-
-
         funcao2();
     } catch (RuntimeException | DivisionByZeroError $error) {
         echo "Estou na função 1, mas aconteceu um erro na função 2" . PHP_EOL;
@@ -28,16 +25,18 @@ function funcao2()
 {
     echo 'Entrei na função 2' . PHP_EOL;
 
-    $divisao = intdiv(5,0);
+    throw new RuntimeException("Uma exception foi lançada");
 
-    $arrayFixo = new SplFixedArray(2);
-    $arrayFixo[3] = 1111;
+//    $divisao = intdiv(5,0);
+//
+//    $arrayFixo = new SplFixedArray(2);
+//    $arrayFixo[3] = 1111;
 
-    for ($i = 1; $i <= 5; $i++) {
-        echo $i . PHP_EOL;
-    }
+//    for ($i = 1; $i <= 5; $i++) {
+//        echo $i . PHP_EOL;
+//    }
     //print_r(debug_backtrace());
-    exit;
+
     echo 'Saindo da função 2' . PHP_EOL;
 }
 
