@@ -13,6 +13,8 @@ function funcao2()
     for ($i = 1; $i <= 5; $i++) {
         echo $i . PHP_EOL;
     }
+    //print_r(debug_backtrace());
+    exit;
     echo 'Saindo da função 2' . PHP_EOL;
 }
 
