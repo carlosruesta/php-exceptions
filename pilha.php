@@ -8,7 +8,7 @@ function funcao1()
 //            $arrayFixo = new SplFixedArray(2);
 //            $arrayFixo[3] = 1111;
         funcao2();
-    } catch (RuntimeException | DivisionByZeroError $error) {
+    } catch (Throwable $error) {
         echo "Estou na função 1, mas aconteceu um erro na função 2" . PHP_EOL;
         echo "  Detalhes do problema: " . PHP_EOL;
         echo "  Arquivo {$error->getFile()}" . PHP_EOL;
@@ -17,11 +17,11 @@ function funcao1()
         echo "  Pilha de execução: " . PHP_EOL;
         echo "  {$error->getTraceAsString()}" . PHP_EOL . PHP_EOL;
 
-        throw new RuntimeException(
-            "lançando uma nova exception apos o tratamento anterior",
-            $error->getCode(),
-            $error
-        );
+//        throw new RuntimeException(
+//            "lançando uma nova exception apos o tratamento anterior",
+//            $error->getCode(),
+//            $error
+//        );
     }
 
     echo 'Saindo da função 1' . PHP_EOL;
@@ -31,8 +31,7 @@ function funcao2()
 {
     echo 'Entrei na função 2' . PHP_EOL;
 
-    throw new RuntimeException("Uma exception foi lançada");
-
+    throw new Exception("Lançando uma exception qualquer");
 //    $divisao = intdiv(5,0);
 //
 //    $arrayFixo = new SplFixedArray(2);
