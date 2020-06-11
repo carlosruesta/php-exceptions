@@ -12,7 +12,13 @@ function funcao1()
 
         funcao2();
     } catch (RuntimeException | DivisionByZeroError $error) {
-        echo "Estou na função 1, mas aconteceu um erro na função 2 na linha {$error->getLine()} - Mensagem: {$error->getMessage()}" . PHP_EOL;
+        echo "Estou na função 1, mas aconteceu um erro na função 2" . PHP_EOL;
+        echo "  Detalhes do problema: " . PHP_EOL;
+        echo "  Arquivo {$error->getFile()}" . PHP_EOL;
+        echo "  Linha {$error->getLine()}" . PHP_EOL;
+        echo "  Mensagem {$error->getMessage()}" . PHP_EOL;
+        echo "  Pilha de execução: " . PHP_EOL;
+        echo "  {$error->getTraceAsString()}" . PHP_EOL . PHP_EOL;
     }
 
     echo 'Saindo da função 1' . PHP_EOL;
